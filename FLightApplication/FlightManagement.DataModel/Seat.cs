@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FlightManagement.DataModel
+﻿namespace FlightManagement.DataModel
 {
     public class Seat : ModelEntity
     {
@@ -12,7 +6,7 @@ namespace FlightManagement.DataModel
 
         public bool isAvailable { get; set; }
 
-        public Guid FlightId { get; set; }
+        public int FlightId { get; set; }
 
         public Flight Flight { get; set; }
     }

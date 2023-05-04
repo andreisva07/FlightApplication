@@ -32,7 +32,7 @@ namespace FlightManagement.AppLogic
             repositoryWrapper.BookingRepository.Delete(booking);
         }
 
-        public Booking FindUser(Guid flightId, string userName)
+        public Booking FindUser(int flightId, string userName)
         {
             return repositoryWrapper.BookingRepository.FindUser(flightId, userName);
         }

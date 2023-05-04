@@ -32,7 +32,7 @@ namespace FlightManagement.DataAccess
             var entity = dbContext.Set<T>().Update(element).Entity;
             return entity;
         }
-        public T GetById(Guid id)
+        public T GetById(int id)
         {
             return dbContext.Set<T>().Single(x => x.Id == id);
         }

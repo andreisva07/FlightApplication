@@ -28,7 +28,7 @@ namespace FLightApplication.Controllers
         }
 
         // GET: Passengers/Details/5
-        public async Task<IActionResult> Details(Guid? id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Passenger == null)
             {
@@ -60,7 +60,6 @@ namespace FLightApplication.Controllers
         {
             if (ModelState.IsValid)
             {
-                passenger.Id = Guid.NewGuid();
                 _context.Add(passenger);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -69,7 +68,7 @@ namespace FLightApplication.Controllers
         }
 
         // GET: Passengers/Edit/5
-        public async Task<IActionResult> Edit(Guid? id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Passenger == null)
             {
@@ -89,7 +88,7 @@ namespace FLightApplication.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("PassengerName,PassengerSurname,Email,Telephone,Id")] Passenger passenger)
+        public async Task<IActionResult> Edit(int id, [Bind("PassengerName,PassengerSurname,Email,Telephone,Id")] Passenger passenger)
         {
             if (id != passenger.Id)
             {
@@ -120,7 +119,7 @@ namespace FLightApplication.Controllers
         }
 
         // GET: Passengers/Delete/5
-        public async Task<IActionResult> Delete(Guid? id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Passenger == null)
             {
@@ -140,7 +139,7 @@ namespace FLightApplication.Controllers
         // POST: Passengers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Passenger == null)
             {
@@ -156,7 +155,7 @@ namespace FLightApplication.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool PassengerExists(Guid id)
+        private bool PassengerExists(int id)
         {
           return (_context.Passenger?.Any(e => e.Id == id)).GetValueOrDefault();
         }

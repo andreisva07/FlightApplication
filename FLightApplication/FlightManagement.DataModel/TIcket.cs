@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FlightManagement.DataModel
+﻿namespace FlightManagement.DataModel
 {
     public class TIcket : ModelEntity
     {
@@ -12,6 +6,6 @@ namespace FlightManagement.DataModel
 
         public int Price { get; set; }
 
-        public Guid FlightId { get; set; }
+        public int FlightId { get; set; }
     }
 }

@@ -4,10 +4,10 @@
     {
         public string UserName { get; set; }
         
-        public Guid FlightId { get; set; }
+        public int FlightId { get; set; }
 
-        public Guid SeatId { get; set;}
+        public int SeatId { get; set;}
 
-        public Guid TicketId { get; set; }
+        public int TicketId { get; set; }
     }
 }
