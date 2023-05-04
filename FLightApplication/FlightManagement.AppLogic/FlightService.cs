@@ -39,5 +39,10 @@ namespace FlightManagement.AppLogic
         {
             return repositoryWrapper.FlightRepository.SearchFlight(departureCity, arrivalCity, departureDate);
         }
+
+        public void GetFlightsWithAvailableSeats() 
+        {
+            repositoryWrapper.FlightRepository.GetFlightsWithAvailableSeats();
+        }
     }
 }

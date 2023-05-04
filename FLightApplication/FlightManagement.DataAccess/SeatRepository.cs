@@ -11,5 +11,25 @@ namespace FlightManagement.DataAccess
         {
             dbContext.Entry(seat).Property(x => x.Flight).IsModified = false;
         }
+
+        public List<Seat> GetAvailableSeats(int flightid)
+        {
+            return dbContext.Seats.Where(x => x.FlightId == flightid && x.isAvailable == true).ToList();
+        }
+
+        public Seat GetSeatByNumber(int seatnumber)
+        {
+            return dbContext.Seats.First(x => x.Number == seatnumber);
+        }
+        
+        public void SeatAvailability(int seatnumber)
+        {
+            Seat seat = GetSeatByNumber(seatnumber);
+            if(seat != null)
+            {
+                seat.isAvailable= false;
+                Update(seat);
+            }
+        }
     }
 }

@@ -10,5 +10,11 @@ namespace FlightManagement.Abstractions.Repository
     public interface ISeatRepository : IBaseRepository<Seat>
     {
         void SeatForFlight(Seat seat);
+
+        public List<Seat> GetAvailableSeats(int flightid);
+
+        public Seat GetSeatByNumber(int seatnumber);
+
+        public void SeatAvailability(int seatnumber);
     }
 }

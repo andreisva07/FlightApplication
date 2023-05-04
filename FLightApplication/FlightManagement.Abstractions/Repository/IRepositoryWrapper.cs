@@ -8,11 +8,11 @@ namespace FlightManagement.Abstractions.Repository
 {
     public interface IRepositoryWrapper
     {
-        IBookingRepository BookingRepository { get; }
-        IFlightRepository FlightRepository { get; }
-        IPassengerRepository PassengerRepository { get; }
-        ISeatRepository SeatRepository { get; }
-        ITicketRepository TicketRepository { get; }
+        public IBookingRepository BookingRepository { get; }
+        public IFlightRepository FlightRepository { get; }
+        public IPassengerRepository PassengerRepository { get; }
+        public ISeatRepository SeatRepository { get; }
+        public ITicketRepository TicketRepository { get; }
 
         void Save();
     }

@@ -9,11 +9,11 @@ namespace FlightManagement.Abstractions.Repository
 {
     public interface IBaseRepository<T> where T : ModelEntity
     {
-        T Add(T element);
-        void Delete(T element);
-        IQueryable<T> GetAll();
-        T GetById(int id);
-        Task SaveAsync();
-        T Update(T element);
+        public T Add(T element);
+        public void Delete(T element);
+        public IQueryable<T> GetAll();
+        public T GetById(int id);
+        public Task SaveAsync();
+        public T Update(T element);
     }
 }

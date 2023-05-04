@@ -36,6 +36,20 @@ namespace FlightManagement.AppLogic
             repositoryWrapper.SeatRepository.SeatForFlight(seat);
         }
 
+        public void GetAvailableSeats(int flightid)
+        {
+            repositoryWrapper.SeatRepository.GetAvailableSeats(flightid);
+        }
+        public void GetSeatByNumber(int seatnumber)
+        {
+            repositoryWrapper.SeatRepository.GetSeatByNumber(seatnumber);
+        }
+
+        public void SeatAvailability(int seatnumber) 
+        {
+            repositoryWrapper.SeatRepository.SeatAvailability(seatnumber);
+        }
+
         public async Task SaveAsync()
         {
             await repositoryWrapper.SeatRepository.SaveAsync();
