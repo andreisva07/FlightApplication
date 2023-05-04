@@ -32,13 +32,26 @@ namespace FlightManagement.DataAccess
             var entity = dbContext.Set<TIcket>().Update(ticket);
             return entity.Entity;
         }
+
         public async Task SaveAsync()
         {
             await dbContext.SaveChangesAsync();
         }
+
         public void TicketForFlight(TIcket ticket)
         {
             dbContext.Entry(ticket).Property(x => x.Id).IsModified = false;
         }
+
+        public IQueryable<TIcket> GetByType(string type)
+        {
+            return dbContext.Set<TIcket>().Where(x => x.Type ==  type).AsNoTracking();
+        }
+
+        public int GetTotalRevenue()
+        {
+            return dbContext.Set<TIcket>().Sum(x => x.Price);
+        }
+
     }
 }
