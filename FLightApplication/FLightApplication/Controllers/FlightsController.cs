@@ -28,7 +28,7 @@ namespace FLightApplication.Controllers
         }
 
         // GET: Flights/Details/5
-        public async Task<IActionResult> Details(Guid? id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Flight == null)
             {
@@ -60,7 +60,6 @@ namespace FLightApplication.Controllers
         {
             if (ModelState.IsValid)
             {
-                flight.Id = Guid.NewGuid();
                 _context.Add(flight);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -69,7 +68,7 @@ namespace FLightApplication.Controllers
         }
 
         // GET: Flights/Edit/5
-        public async Task<IActionResult> Edit(Guid? id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Flight == null)
             {
@@ -89,7 +88,7 @@ namespace FLightApplication.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Name,DepartureCity,ArrivalCity,departureDate,arrivalDate,Id")] Flight flight)
+        public async Task<IActionResult> Edit(int id, [Bind("Name,DepartureCity,ArrivalCity,departureDate,arrivalDate,Id")] Flight flight)
         {
             if (id != flight.Id)
             {
@@ -120,7 +119,7 @@ namespace FLightApplication.Controllers
         }
 
         // GET: Flights/Delete/5
-        public async Task<IActionResult> Delete(Guid? id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Flight == null)
             {
@@ -140,7 +139,7 @@ namespace FLightApplication.Controllers
         // POST: Flights/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Flight == null)
             {
@@ -156,7 +155,7 @@ namespace FLightApplication.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool FlightExists(Guid id)
+        private bool FlightExists(int id)
         {
           return (_context.Flight?.Any(e => e.Id == id)).GetValueOrDefault();
         }

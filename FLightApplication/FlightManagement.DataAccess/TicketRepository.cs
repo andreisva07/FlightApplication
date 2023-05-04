@@ -1,12 +1,6 @@
 ﻿using FlightManagement.Abstractions.Repository;
 using FlightManagement.DataModel;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FlightManagement.DataAccess
 {
@@ -28,7 +22,7 @@ namespace FlightManagement.DataAccess
             return dbContext.Set<TIcket>().AsNoTracking();
         }
 
-        public TIcket GetById(Guid id)
+        public TIcket GetById(int id)
         {
             return dbContext.Set<TIcket>().Single(x => x.Id == id);
         }

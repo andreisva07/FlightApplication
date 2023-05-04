@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FLightApplication.Migrations
 {
     /// <inheritdoc />
-    public partial class First : Migration
+    public partial class Init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -48,6 +48,70 @@ namespace FLightApplication.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Booking",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FlightId = table.Column<int>(type: "int", nullable: false),
+                    SeatId = table.Column<int>(type: "int", nullable: false),
+                    TicketId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Booking", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Flight",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DepartureCity = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ArrivalCity = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    departureDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    arrivalDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Flight", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Passenger",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PassengerName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PassengerSurname = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Telephone = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Passenger", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TIcket",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Price = table.Column<int>(type: "int", nullable: false),
+                    FlightId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TIcket", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -213,6 +277,18 @@ namespace FLightApplication.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Booking");
+
+            migrationBuilder.DropTable(
+                name: "Flight");
+
+            migrationBuilder.DropTable(
+                name: "Passenger");
+
+            migrationBuilder.DropTable(
+                name: "TIcket");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

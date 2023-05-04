@@ -12,7 +12,7 @@ namespace FlightManagement.Abstractions.Repository
         T Add(T element);
         void Delete(T element);
         IQueryable<T> GetAll();
-        T GetById(Guid id);
+        T GetById(int id);
         Task SaveAsync();
         T Update(T element);
     }

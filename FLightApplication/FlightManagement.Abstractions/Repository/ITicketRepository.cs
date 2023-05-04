@@ -13,7 +13,7 @@ namespace FlightManagement.Abstractions.Repository
         TIcket ChooseTicket(TIcket ticket);
         void Delete(TIcket ticket);
         IQueryable<TIcket> GetAll();
-        TIcket GetById(Guid id);
+        TIcket GetById(int id);
         Task SaveAsync();
         void TicketForFlight(TIcket ticket);
     }

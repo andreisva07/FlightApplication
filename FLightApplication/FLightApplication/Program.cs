@@ -1,7 +1,6 @@
 using FlightManagement.Data;
 using FlightManagement.DataAccess;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Migrations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,9 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultDBConnection")));
 builder.Services.AddDbContext<BookingFlightsDbContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("FlightDatabaseConnection")));
+options.UseSqlServer(builder.Configuration.GetConnectionString("FlightDBConnection")));
 
 var app = builder.Build();
 
