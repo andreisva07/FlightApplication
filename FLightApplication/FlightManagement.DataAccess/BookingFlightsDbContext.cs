@@ -14,6 +14,8 @@ namespace FlightManagement.DataAccess
         public DbSet<Passenger> Passengers { get; set; }
 
         public DbSet<TIcket> TIckets { get; set; }
+
+        public DbSet<Seat> Seats { get; set; }
         public DbSet<FlightManagement.DataModel.Flight> Flight { get; set; } = default!;
         public DbSet<FlightManagement.DataModel.Passenger> Passenger { get; set; } = default!;
         public DbSet<FlightManagement.DataModel.TIcket> TIcket { get; set; } = default!;

@@ -9,8 +9,8 @@ namespace FlightManagement.Abstractions.Repository
 {
     public interface IBookingRepository : IBaseRepository<Booking>
     {
-        Booking FindEmail(string userEmail);
-        Booking FindUser(int flightId, string userName);
+        public Booking FindEmail(string userEmail);
+        public Booking FindUser(int flightId, string userName);
 
     }
 }

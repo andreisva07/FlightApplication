@@ -9,5 +9,10 @@ namespace FlightManagement.Abstractions.Repository
 {
     public interface IPassengerRepository : IBaseRepository<Passenger>
     {
+        public Passenger GetPassengerById(int passengerId);
+
+        public List<Passenger> GetPassengersByEmail(string email);
+
+        public List<Passenger> GetPassengersByTelephone(string telephone);
     }
 }

@@ -32,6 +32,21 @@ namespace FlightManagement.AppLogic
             repositoryWrapper.PassengerRepository.Update(passenger);
         }
 
+        public void GetPassengerById(int passengerId)
+        {
+            repositoryWrapper.PassengerRepository.GetPassengerById(passengerId);
+        }
+        
+        public void GetPassengersByEmail(string email)
+        {
+            repositoryWrapper.PassengerRepository.GetPassengersByEmail(email);
+        }
+
+        public void GetPassengersByTelephone(string telephone)
+        {
+            repositoryWrapper.PassengerRepository.GetPassengersByTelephone(telephone);
+        }
+
         public async Task SaveAsync()
         {
             await repositoryWrapper.PassengerRepository.SaveAsync();
