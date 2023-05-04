@@ -31,6 +31,15 @@ namespace FlightManagement.AppLogic
         {
             repositoryWrapper.TicketRepository.Delete(ticket);
         }
+        public void GetTotalRevenue() 
+        {
+            repositoryWrapper.TicketRepository.GetTotalRevenue();
+        }
+
+        public void GetByType(string type)
+        {
+            repositoryWrapper.TicketRepository.GetByType(type);
+        }
 
         public void TicketForFlight(TIcket ticket)
         {

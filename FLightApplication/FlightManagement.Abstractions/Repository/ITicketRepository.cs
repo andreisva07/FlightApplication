@@ -21,6 +21,10 @@ namespace FlightManagement.Abstractions.Repository
 
         public Task SaveAsync();
 
+        public int GetTotalRevenue();
+
+        public IQueryable<TIcket> GetByType(string type);
+
         public void TicketForFlight(TIcket ticket);
     }
 }
