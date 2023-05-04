@@ -23,4 +23,8 @@
     <ProjectReference Include="..\FlightManagement.DataAccess\FlightManagement.DataAccess.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Bookings\img\" />
+  </ItemGroup>
+
 </Project>
