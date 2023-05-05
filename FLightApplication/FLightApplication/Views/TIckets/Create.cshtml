@@ -4,9 +4,82 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<style>
+    body{
+        background-color: aquamarine;    }
+    
+    h1 {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
 
-<h4>TIcket</h4>
+    
+    .col-md-4 {
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+    }
+
+    input {
+        display: block;
+        width: 100%;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+    }
+
+    .text-danger {
+        color: #dc3545;
+    }
+
+
+    input[type="submit"] {
+        display: inline-block;
+        padding: 0.375rem 0.75rem;
+        margin-top: 1rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #fff;
+        background-color: #4CAF50;
+        border: 1px solid #007bff;
+        border-radius: 0.25rem;
+        transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+        input[type="submit"]:hover {
+            background-color: #4CAF50;
+            border-color: #0062cc;
+        }
+
+
+    a {
+        display: inline-block;
+        margin-top: 1rem;
+        color: #4CAF50;
+        text-decoration: none;
+    }
+
+        a:hover {
+            color: #007bff;
+            text-decoration: underline;
+        }
+</style>
+
+<h1>TIckets</h1>
 <hr />
 <div class="row">
     <div class="col-md-4">
