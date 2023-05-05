@@ -21,8 +21,8 @@ jobs:
       with:
         dotnet-version: 7.0.x
     - name: Restore dependencies
-      run: dotnet restore ./FlightApplication
+      run: dotnet restore ./FLightApplication
     - name: Build
-      run: dotnet build ./FlightApplication --no-restore
+      run: dotnet build ./FLightApplication --no-restore
     - name: Test
-      run: dotnet test ./FlightApplication --no-build --verbosity normal
+      run: dotnet test ./FLightApplication --no-build --verbosity normal
