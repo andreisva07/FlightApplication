@@ -7,13 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Views\Bookings\img\**" />
-    <Content Remove="Views\Bookings\img\**" />
-    <EmbeddedResource Remove="Views\Bookings\img\**" />
-    <None Remove="Views\Bookings\img\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
@@ -29,6 +22,10 @@
     <ProjectReference Include="..\FlightManagement.Abstractions\FlightManagement.Abstractions.csproj" />
     <ProjectReference Include="..\FlightManagement.AppLogic\FlightManagement.AppLogic.csproj" />
     <ProjectReference Include="..\FlightManagement.DataAccess\FlightManagement.DataAccess.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Bookings\img\" />
   </ItemGroup>
 
 </Project>
