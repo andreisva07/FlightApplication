@@ -40,9 +40,9 @@ namespace FlightManagement.AppLogic
             return repositoryWrapper.FlightRepository.SearchFlight(departureCity, arrivalCity, departureDate);
         }
 
-        public void GetFlightsWithAvailableSeats() 
+        public IQueryable<Flight> GetFlightsWithAvailableSeats() 
         {
-            repositoryWrapper.FlightRepository.GetFlightsWithAvailableSeats();
+            return repositoryWrapper.FlightRepository.GetFlightsWithAvailableSeats();
         }
     }
 }

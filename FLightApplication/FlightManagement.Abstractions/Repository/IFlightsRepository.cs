@@ -11,7 +11,7 @@ namespace FlightManagement.Abstractions.Repository
     {
         public IQueryable<Flight> SearchFlight(string departureCity, string arrivalCity, DateTime departureDate);
 
-        public IEnumerable<Flight> GetFlightsWithAvailableSeats();
+        public IQueryable<Flight> GetFlightsWithAvailableSeats();
 
     }
 }

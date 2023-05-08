@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLightApplication", "FLightApplication\FLightApplication.csproj", "{DD1D705F-AF10-4EDB-A4A6-F63BAA75CB97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FLightApplication", "FLightApplication\FLightApplication.csproj", "{DD1D705F-AF10-4EDB-A4A6-F63BAA75CB97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManagement.Abstractions", "FlightManagement.Abstractions\FlightManagement.Abstractions.csproj", "{673D7275-BF25-48FE-A787-D61E49E31061}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightManagement.Abstractions", "FlightManagement.Abstractions\FlightManagement.Abstractions.csproj", "{673D7275-BF25-48FE-A787-D61E49E31061}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManagement.AppLogic", "FlightManagement.AppLogic\FlightManagement.AppLogic.csproj", "{1D2B5B04-435E-47AE-A682-830524620AAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightManagement.AppLogic", "FlightManagement.AppLogic\FlightManagement.AppLogic.csproj", "{1D2B5B04-435E-47AE-A682-830524620AAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManagement.DataAccess", "FlightManagement.DataAccess\FlightManagement.DataAccess.csproj", "{D340AAEB-66FC-4BFC-B3CB-9D0D2D334581}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightManagement.DataAccess", "FlightManagement.DataAccess\FlightManagement.DataAccess.csproj", "{D340AAEB-66FC-4BFC-B3CB-9D0D2D334581}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManagement.DataModel", "FlightManagement.DataModel\FlightManagement.DataModel.csproj", "{1B345FCC-08BA-41EB-AC04-E0993493B775}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightManagement.DataModel", "FlightManagement.DataModel\FlightManagement.DataModel.csproj", "{1B345FCC-08BA-41EB-AC04-E0993493B775}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManagement.Test", "FlightApplication.Test\FlightManagement.Test.csproj", "{BE782D67-D9FF-4082-B0AB-BD5E995F8C09}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{1B345FCC-08BA-41EB-AC04-E0993493B775}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B345FCC-08BA-41EB-AC04-E0993493B775}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B345FCC-08BA-41EB-AC04-E0993493B775}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE782D67-D9FF-4082-B0AB-BD5E995F8C09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE782D67-D9FF-4082-B0AB-BD5E995F8C09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE782D67-D9FF-4082-B0AB-BD5E995F8C09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE782D67-D9FF-4082-B0AB-BD5E995F8C09}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

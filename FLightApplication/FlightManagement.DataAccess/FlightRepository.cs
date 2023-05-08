@@ -14,7 +14,7 @@ namespace FlightManagement.DataAccess
                 .Where(x => x.departureDate.Date == departureDate.Date);
         }
 
-        public IEnumerable<Flight> GetFlightsWithAvailableSeats()
+        public IQueryable<Flight> GetFlightsWithAvailableSeats()
         {
             return GetAll().Where(x => x.Seats.Count < 40);
         }
