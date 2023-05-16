@@ -22,7 +22,7 @@ namespace FlightManagement.DataAccess
             return dbContext.Seats.First(x => x.Number == seatnumber);
         }
         
-        public void SeatAvailability(int seatnumber)
+        public int SeatAvailability(int seatnumber)
         {
             Seat seat = GetSeatByNumber(seatnumber);
             if(seat != null)
@@ -30,6 +30,8 @@ namespace FlightManagement.DataAccess
                 seat.isAvailable= false;
                 Update(seat);
             }
+            return seatnumber;
+            
         }
     }
 }

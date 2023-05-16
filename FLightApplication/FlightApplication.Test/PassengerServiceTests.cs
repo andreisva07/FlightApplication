@@ -60,5 +60,25 @@ namespace FlightManagement.Test
             Assert.AreEqual("John Doe", result[0].PassengerName);
             Assert.AreEqual("Jane Smith", result[1].PassengerName);
         }
+
+        [TestMethod]
+        public void GetPassengerById_Should_Return_Correct_Passenger_When_PassengerId_Exists()
+        {
+            
+            int passengerId = 1;
+            var mockPassenger = new Passenger { Id = passengerId, PassengerName = "John Doe", Email = "johndoe@example.com", Telephone = "1234567890" };
+
+            mockRepositoryWrapper.Setup(x => x.PassengerRepository.GetPassengerById(passengerId))
+                                 .Returns(mockPassenger);
+
+            
+            var result = passengerService.GetPassengerById(passengerId);
+
+           
+            Assert.AreEqual(passengerId, result.Id);
+            Assert.AreEqual("John Doe", result.PassengerName);
+            Assert.AreEqual("johndoe@example.com", result.Email);
+            Assert.AreEqual("1234567890", result.Telephone);
+        }
     }
 }

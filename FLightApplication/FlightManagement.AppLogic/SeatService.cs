@@ -40,14 +40,14 @@ namespace FlightManagement.AppLogic
         {
             repositoryWrapper.SeatRepository.GetAvailableSeats(flightid);
         }
-        public void GetSeatByNumber(int seatnumber)
+        public Seat GetSeatByNumber(int seatnumber)
         {
-            repositoryWrapper.SeatRepository.GetSeatByNumber(seatnumber);
+           return repositoryWrapper.SeatRepository.GetSeatByNumber(seatnumber);
         }
 
-        public void SeatAvailability(int seatnumber) 
+        public int SeatAvailability(int seatnumber) 
         {
-            repositoryWrapper.SeatRepository.SeatAvailability(seatnumber);
+           return repositoryWrapper.SeatRepository.SeatAvailability(seatnumber);
         }
 
         public async Task SaveAsync()
