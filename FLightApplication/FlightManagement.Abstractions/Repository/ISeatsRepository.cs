@@ -15,6 +15,6 @@ namespace FlightManagement.Abstractions.Repository
 
         public Seat GetSeatByNumber(int seatnumber);
 
-        public void SeatAvailability(int seatnumber);
+        public int SeatAvailability(int seatnumber);
     }
 }

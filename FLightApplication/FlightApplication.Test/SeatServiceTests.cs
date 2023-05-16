@@ -5,6 +5,7 @@ using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,14 +14,16 @@ namespace FlightManagement.Test
     [TestClass]
     public class SeatServiceTests
     {
-        private readonly Mock<IRepositoryWrapper> _repositoryWrapperMock;
+        private Mock<IRepositoryWrapper> _repositoryWrapperMock;
+        private SeatService seatService;
 
-
-        public SeatServiceTests()
+        [TestInitialize]
+        public void Setup()
         {
             _repositoryWrapperMock = new Mock<IRepositoryWrapper>();
+            seatService = new SeatService(_repositoryWrapperMock.Object);
         }
-        
+
         public void GetAllSeats_ReturnsAllSeats()
         {
             // Arrange
@@ -97,7 +100,39 @@ namespace FlightManagement.Test
             var seat = new Seat { Number = seatNumber };
             _repositoryWrapperMock.Setup(x => x.SeatRepository);
             }
-        
+
+        [TestMethod]
+        public void GetSeatByNumber_Should_Return_Correct_Seat_When_SeatNumber_Exists()
+        {
+            
+            int seatNumber = 42;
+            var mockSeat = new Seat { Number = seatNumber };
+
+            _repositoryWrapperMock.Setup(x => x.SeatRepository.GetSeatByNumber(seatNumber)).Returns(mockSeat);
+
+            
+            var result = seatService.GetSeatByNumber(seatNumber);
+
+            
+            Assert.IsNotNull(result);
+            Assert.AreEqual(seatNumber, result.Number);
+            
+        }
+
+        [TestMethod]
+        public void SeatAvailability_Should_Update_Seat_Availability_When_SeatNumber_Exists()
+        {
+            
+            int seatNumber = 42;
+            var mockSeat = new Seat { Number = seatNumber, isAvailable = false };
+
+            _repositoryWrapperMock.Setup(x => x.SeatRepository.GetSeatByNumber(seatNumber)).Returns(mockSeat);
+
+            
+            seatService.SeatAvailability(seatNumber);
+
+            Assert.IsFalse(mockSeat.isAvailable);
+        }
 
     }
 }
