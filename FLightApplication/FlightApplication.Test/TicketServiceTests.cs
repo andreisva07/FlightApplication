@@ -22,6 +22,7 @@ namespace FlightManagement.Test
             _repositoryWrapperMock.Setup(x => x.TicketRepository).Returns(mockTicketRepository.Object);
             ticketService = new TicketService(_repositoryWrapperMock.Object);
         }
+        [TestMethod]
 
         public void CreateFromEntity_AddsTicketToRepository()
         {
@@ -37,6 +38,7 @@ namespace FlightManagement.Test
             // Assert
             mockTicketRepository.Verify(x => x.Add(It.IsAny<TIcket>()), Times.Once);
         }
+        [TestMethod]
 
         public void UpdateFromEntity_UpdatesTicketInRepository()
         {
@@ -53,6 +55,7 @@ namespace FlightManagement.Test
             mockTicketRepository.Verify(x => x.Update(It.IsAny<TIcket>()), Times.Once);
         }
 
+        [TestMethod]
 
         public void DeleteFromEntity_DeletesTicketFromRepository()
         {
@@ -69,6 +72,7 @@ namespace FlightManagement.Test
             mockTicketRepository.Verify(x => x.Delete(It.IsAny<TIcket>()), Times.Once);
         }
 
+        [TestMethod]
         public void GetTotalRevenue_ReturnsTotalRevenue()
         {
             // Arrange
@@ -103,14 +107,11 @@ namespace FlightManagement.Test
         {
             TIcket ticket = new TIcket { Id = 1 };
 
-            // Act
             ticketService.TicketForFlight(ticket);
 
-            // Assert
-            mockTicketRepository.Verify(x => x.TicketForFlight(It.Is<TIcket>(t => t.Id == ticket.Id)), Times.Once);
+            mockTicketRepository.Verify(x => x.TicketForFlight(It.Is<TIcket>(x => x.Id == ticket.Id)), Times.Once);
 
-            // Check if the ticket ID is not modified
-            mockTicketRepository.Verify(x => x.Update(It.Is<TIcket>(t => t.Id == ticket.Id)), Times.Never);
+            mockTicketRepository.Verify(x => x.Update(It.Is<TIcket>(x => x.Id == ticket.Id)), Times.Never);
         }
     }
 }
