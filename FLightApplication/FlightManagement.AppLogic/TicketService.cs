@@ -36,9 +36,9 @@ namespace FlightManagement.AppLogic
             repositoryWrapper.TicketRepository.GetTotalRevenue();
         }
 
-        public List<TIcket> GetByType(string type)
+        public void GetByType(string type)
         {
-            return repositoryWrapper.TicketRepository.GetByType(type).ToList();
+            repositoryWrapper.TicketRepository.GetByType(type);
         }
 
         public void TicketForFlight(TIcket ticket)

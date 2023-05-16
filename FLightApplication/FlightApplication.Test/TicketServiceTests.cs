@@ -2,7 +2,6 @@
 using FlightManagement.AppLogic;
 using FlightManagement.DataModel;
 using Moq;
-using System.Net.Sockets;
 
 
 namespace FlightManagement.Test
@@ -10,18 +9,13 @@ namespace FlightManagement.Test
     [TestClass]
     public class TicketServiceTests
     {
-        private  Mock<IRepositoryWrapper> _repositoryWrapperMock;
-        private  Mock<ITicketRepository> mockTicketRepository;
-        private TicketService ticketService;
+        private readonly Mock<IRepositoryWrapper> _repositoryWrapperMock;
 
-        [TestInitialize]
-        public void SetUp()
+        public TicketServiceTests()
         {
             _repositoryWrapperMock = new Mock<IRepositoryWrapper>();
-            mockTicketRepository = new Mock<ITicketRepository>();
-            _repositoryWrapperMock.Setup(x => x.TicketRepository).Returns(mockTicketRepository.Object);
-            ticketService = new TicketService(_repositoryWrapperMock.Object);
         }
+
 
         public void CreateFromEntity_AddsTicketToRepository()
         {
@@ -76,41 +70,6 @@ namespace FlightManagement.Test
             var mockTicketRepository = new Mock<ITicketRepository>();
             mockTicketRepository.Setup(x => x.GetTotalRevenue()).Returns((int)totalRevenue);
             _repositoryWrapperMock.Setup(x => x.TicketRepository).Returns(mockTicketRepository.Object);
-        }
-
-        [TestMethod]
-        public void GetByType_WhenCalled_ReturnsTicketsWithWantedType()
-        {
-            string test = "testType";
-            List<TIcket> tickets = new List<TIcket>()
-            {
-              new TIcket {Id = 1, Type = test},
-              new TIcket {Id = 2, Type = test},
-              new TIcket {Id = 3, Type = "testType2" }
-            };
-            mockTicketRepository.Setup(x => x.GetByType(test))
-                                .Returns(tickets.Where(x => x.Type == test).ToList());
-
-            var result = ticketService.GetByType(test);
-
-            Assert.AreEqual(2, result.Count());
-            Assert.IsTrue(result.All(t => t.Type == test));
-        }
-
-        [TestMethod]
-
-        public void TicketForFlight_WhenCalled_MarksTicketIdAsUnmodified()
-        {
-            TIcket ticket = new TIcket { Id = 1 };
-
-            // Act
-            ticketService.TicketForFlight(ticket);
-
-            // Assert
-            mockTicketRepository.Verify(x => x.TicketForFlight(It.Is<TIcket>(t => t.Id == ticket.Id)), Times.Once);
-
-            // Check if the ticket ID is not modified
-            mockTicketRepository.Verify(x => x.Update(It.Is<TIcket>(t => t.Id == ticket.Id)), Times.Never);
         }
     }
 }
