@@ -43,9 +43,9 @@ namespace FlightManagement.DataAccess
             dbContext.Entry(ticket).Property(x => x.Id).IsModified = false;
         }
 
-        public IQueryable<TIcket> GetByType(string type)
+        public List<TIcket> GetByType(string type)
         {
-            return dbContext.Set<TIcket>().Where(x => x.Type ==  type).AsNoTracking();
+            return dbContext.Set<TIcket>().Where(x => x.Type ==  type).AsNoTracking().ToList();
         }
 
         public int GetTotalRevenue()

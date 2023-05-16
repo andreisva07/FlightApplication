@@ -23,7 +23,7 @@ namespace FlightManagement.Abstractions.Repository
 
         public int GetTotalRevenue();
 
-        public IQueryable<TIcket> GetByType(string type);
+        public List<TIcket> GetByType(string type);
 
         public void TicketForFlight(TIcket ticket);
     }
